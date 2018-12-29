@@ -23,7 +23,7 @@ python setup.py build_ext --inplace
 3. Paste the downloaded weight in this folder(or you can direct download in this folder😁).  
 
 ### Step5: Nothing just start it.
-Here the most interesting part comes traningggg...\
+Here the most interesting part comes traininggg...\
 
 If you want your model to render a video then copy the video and paste it under the darkflow-master folder.
 and use this command
@@ -47,7 +47,7 @@ python flow --model cfg/yolo.cfg :- Which model you want to use give it path to 
 python flow --model cfg/yolo.cfg --load bin/yolov2.weights --demo camera --gpu 1.0 --saveVideo
 ```
 
-just use ```camera``` keyword./
+just use ```camera``` keyword.
 
 Now enjoy ✌.
 
