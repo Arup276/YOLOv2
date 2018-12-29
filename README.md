@@ -45,6 +45,7 @@ python flow --model cfg/yolo.cfg :- Which model you want to use give it path to 
 ### Now if you want your web camera to detect object then run this command
 ```
 python flow --model cfg/yolo.cfg --load bin/yolov2.weights --demo camera --gpu 1.0 --saveVideo
+```
 
 just use ```camera``` keyword./
 
