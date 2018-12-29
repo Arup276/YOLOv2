@@ -49,6 +49,23 @@ python flow --model cfg/yolo.cfg --load bin/yolov2.weights --demo camera --gpu 1
 
 just use ```camera``` keyword.
 
+
+## If you want to detect object from a image then go for it,
+Open you jupyter notebook and start typing...
+```
+from darkflow.net.build import TFNet
+import cv2
+
+options = {"model": "cfg/yolo.cfg", "load": "bin/yolov2.weights", "threshold": 0.3}
+
+tfnet = TFNet(options)
+
+imgcv = cv2.imread("./sample_img/dog.jpg")
+result = tfnet.return_predict(imgcv)
+print(result)
+```
+
+It will predict the object with confident score in that given image.   
 Now enjoy ✌.
 
 
