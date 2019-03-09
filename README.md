@@ -66,7 +66,7 @@ result = tfnet.return_predict(imgcv)
 print(result)
 ```
 
-### Their is no code for run yolov2 on image from cmd but here is the solution just run `python photoshow.py` ,before the open the file and modify the `option` according to your cfg and weight location.
+### Their is no code for run yolov2 on single image from cmd (or idk) so i try this just run `yolov2photo.py` ,before that open the `yolov2photo.py` file and modify the `options` according to your cfg,weight location and if you have gpu the make `"gpu":1.0`.
 
 
 ```# importing the dependencies
