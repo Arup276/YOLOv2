@@ -23,13 +23,14 @@ python setup.py build_ext --inplace
 3. Paste the downloaded weight in this folder(or you can direct download in this folder😁).  
 
 ### Step5: Nothing just start it.
-Here the most interesting part comes traininggg...\
+Here the most interesting part comes...\
 
 If you want your model to render a video then copy the video and paste it under the darkflow-master folder.
 and use this command
 ```
 python flow --model cfg/yolo.cfg --load bin/yolov2.weights --demo videofile.mp4 --gpu 1.0 --saveVideo
 ```
+#### if you get some error like `ModuleNotFoundError: No module named 'nms'` then download the repo from [here](https://github.com/thtrieu/darkflow) and run build_ext properly.
 
 #### Code Description.
 python flow --model cfg/yolo.cfg :- Which model you want to use give it path to the model.  
@@ -64,6 +65,50 @@ imgcv = cv2.imread("./sample_img/dog.jpg")
 result = tfnet.return_predict(imgcv)
 print(result)
 ```
+
+### Their is no code for run yolov2 on image from cmd but here is the solution just run `python photoshow.py` ,before the open the file and modify the `option` according to your cfg and weight location.
+
+
+`# importing the dependencies
+import cv2
+import matplotlib.pyplot as plt
+from darkflow.net.build import TFNet
+import argparse
+
+# the cfg file and weights location change this thing according to your model location
+model = {"model": "cfg/yolov2.cfg",
+           "load": "yolov2.weights",
+           "threshold": 0.4}
+
+# creating the object
+tfnet = TFNet(model)
+
+# to get the image path
+parser = argparse.ArgumentParser()
+parser.add_argument('--img',type=str,help='path of the image')
+arg = parser.parse_args()
+
+imgcv = cv2.imread(arg.img) # read the image
+result = tfnet.return_predict(imgcv) # predict the classes and cordinates of the oject
+
+# This is for draw the bounding box around the predicted classes 
+tl = []
+br = []
+labels = []
+for i in range(len(result)):
+    topleft = (result[i]['topleft']['x'],result[i]['topleft']['y']) # to get the labels from the predicted class ,it's in the form of dictionary
+    bottomright = (result[i]['bottomright']['x'],result[i]['bottomright']['y'])
+    label = (result[i]['label'])
+    tl.append(topleft)
+    br.append(bottomright)
+    labels.append(label)
+    img2 = cv2.rectangle(imgcv,tl[i],br[i],(0,255,255),5) # draw rectangles around the classes here we pass image,topleft cordinates ,bottomright cordinates ,which colour box we want and how thik the line
+    img2 = cv2.putText(imgcv,labels[i],tl[i],cv2.FONT_HERSHEY_COMPLEX,1, (0 ,0 ,0), 2) # putting the label on the topleft corner
+img2 = cv2.cvtColor(img2,cv2.COLOR_BGR2RGB)  # convert the image in RGB format
+cv2.imshow('prediction',img2)
+cv2.waitKey(0) # waitkey for hold the image in display until user press any key
+
+`
 
 It will predict the object with confident score in that given image.   
 Now enjoy ✌.
