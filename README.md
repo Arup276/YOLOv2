@@ -130,7 +130,7 @@ cv2.imshow('prediction',img3)
 cv2.waitKey(0) # waitkey for hold the image in display until user press any key
 
 ```
-
+if you do this thing on jupyter then open `yolov2_show_img.ipynb ` do enjoy.
 It will predict the object with confident score in that given image.   
 Now enjoy ✌.
 
