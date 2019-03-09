@@ -69,7 +69,7 @@ print(result)
 ### Their is no code for run yolov2 on image from cmd but here is the solution just run `python photoshow.py` ,before the open the file and modify the `option` according to your cfg and weight location.
 
 
-`# importing the dependencies
+```# importing the dependencies
 import cv2
 import matplotlib.pyplot as plt
 from darkflow.net.build import TFNet
@@ -108,7 +108,7 @@ img2 = cv2.cvtColor(img2,cv2.COLOR_BGR2RGB)  # convert the image in RGB format
 cv2.imshow('prediction',img2)
 cv2.waitKey(0) # waitkey for hold the image in display until user press any key
 
-`
+```
 
 It will predict the object with confident score in that given image.   
 Now enjoy ✌.
