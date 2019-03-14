@@ -7,7 +7,7 @@
 2.OpenCV([downloas](https://www.lfd.uci.edu/~gohlke/pythonlibs/)).  
 3.tensorflow (If you have gpu then use gpu [version](https://www.tensorflow.org/install/))  
 
-### Step2: Clone and Download this repository,Or you can download it from [here](https://github.com/thtrieu/darkflow).
+### Step2: Clone and Download this repository,Or you can download it from [here](https://github.com/Arup276/darkflow).
 
 ### Step3: Build the cython extensions.
 Open cmd at darkflow-master folder and type
